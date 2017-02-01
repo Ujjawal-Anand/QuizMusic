@@ -1,5 +1,6 @@
 package in.uscool.quizmusic;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -60,6 +61,16 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+    @Override
+    public void onPause() {
+        super.onPause();
+        DataAdapter dataAdapter = new DataAdapter();
+        dataAdapter.stopmPlayer();
+    }
+
+    protected void onResume() {
+        super.onResume();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,7 +120,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initMaterialViewPager() {
-        setTitle("Mathematics");
+        setTitle("Quiz Music");
 
         mViewPager = (MaterialViewPager) findViewById(R.id.materialViewPager);
 
@@ -119,23 +130,25 @@ public class MainActivity extends AppCompatActivity
             setSupportActionBar(toolbar);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.setDrawerListener(toggle);
+//        toggle.syncState();
 
         mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
             @Override
             public Fragment getItem(int position) {
-                switch (position % 4) {
+                switch (position % 5) {
                     case 0:
                         return MainQuizFragment.newInstance();
                     case 1:
                         return BreakMusicFragment.newInstance();
                     case 2:
                         return ContestantCallingFragment.newInstance();
+                    case 3:
+                        return OthersMusicFragment.newInstance();
                     default:
                         return MainQuizFragment.newInstance();
                 }
@@ -143,18 +156,20 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public int getCount() {
-                return 3;
+                return 4;
             }
 
             @Override
             public CharSequence getPageTitle(int position) {
-                switch (position % 3) {
+                switch (position % 4) {
                     case 0:
                         return "Main Quiz";
                     case 1:
-                        return "Break";
+                        return "Background";
                     case 2:
-                        return "Extras";
+                        return "Others";
+                    case 3:
+                        return "Songs";
                 }
                 return "";
             }
@@ -167,15 +182,15 @@ public class MainActivity extends AppCompatActivity
                     case 0:
                         return HeaderDesign.fromColorResAndUrl(
                                 R.color.colorPrimary,
-                                "http://hdwallpaperbackgrounds.net/wp-content/uploads/2015/11/awesome-jupiter-planet-widescreen-high-resolution-for-desktop-background-wallpaper-pictures-free.jpg");
+                                "http://www.techicy.com/wp-content/uploads/2015/01/indian-flag-photos-hd-wallpapers-download-free-1024x683.jpg");
                     case 1:
                         return HeaderDesign.fromColorResAndUrl(
                                 R.color.colorPrimary,
-                                "http://free4kwallpaper.com/wp-content/uploads/2016/01/Creative-Jupiter-4K-Wallpaper-680x425.jpg");
+                                "http://www.cqsisu.com/data/wallpapers/16/755926.jpg");
                     case 2:
                         return HeaderDesign.fromColorResAndUrl(
                                 R.color.colorPrimary,
-                                "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
+                                "http://backwallpapers.com/wp-content/uploads/2016/07/India-Replublic-Day-India-Gate-Wallpaper-HD.jpg");
                     case 3:
                         return HeaderDesign.fromColorResAndUrl(
                                 R.color.colorPrimary,

@@ -22,8 +22,11 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<Model> dataSet;
     Context mContext;
     int total_types;
-    MediaPlayer mPlayer;
+    public MediaPlayer mPlayer;
     private boolean fabStateVolume = false;
+    public DataAdapter() {
+
+    }
 
     public static class TextTypeViewHolder extends RecyclerView.ViewHolder {
 
@@ -142,20 +145,12 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         public void onClick(View view) {
 
                             if (fabStateVolume) {
-                                if (mPlayer.isPlaying()) {
-                                    mPlayer.stop();
-
-                                }
                                 ((AudioTypeViewHolder) holder).fab.setImageResource(R.mipmap.volume);
                                 fabStateVolume = false;
 
                             } else {
-                                mPlayer = MediaPlayer.create(mContext, object.data);
-                                mPlayer.setLooping(object.loop);
-                                mPlayer.start();
                                 ((AudioTypeViewHolder) holder).fab.setImageResource(R.mipmap.mute);
                                 fabStateVolume = true;
-
                             }
                         }
                     });
@@ -165,6 +160,12 @@ public class DataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             }
         }
 
+    }
+
+    public void stopmPlayer() {
+        if(mPlayer != null) {
+            mPlayer.stop();
+        }
     }
 
     @Override
