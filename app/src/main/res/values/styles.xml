@@ -17,7 +17,7 @@
 
         <item name="android:textColorPrimary">@color/white50</item>
         <item name="android:actionMenuTextColor">@color/cardview_dark_background</item>
-        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <!--<item name="drawerArrowStyle">@style/DrawerArrowStyle</item>-->
         <item name="android:windowTranslucentStatus" tools:targetApi="19">true</item>
 
         <item name="android:windowContentOverlay">@null</item>
@@ -34,11 +34,11 @@
 
     </style>
 
-    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+  <!--  <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
         <item name="color">@color/drawerArrowColor</item>
     </style>
-
+-->
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

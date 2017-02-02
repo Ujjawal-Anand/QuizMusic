@@ -130,11 +130,11 @@ public class MainActivity extends AppCompatActivity
             setSupportActionBar(toolbar);
         }
 
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.setDrawerListener(toggle);
-//        toggle.syncState();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
         mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity
                     case 3:
                         return HeaderDesign.fromColorResAndUrl(
                                 R.color.colorPrimary,
-                                "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg");
+                                "http://cdn.wallpapersafari.com/81/11/GfxtMe.jpg");
                 }
 
                 //execute others actions if needed (ex : modify your header logo)

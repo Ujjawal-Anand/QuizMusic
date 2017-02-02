@@ -69,12 +69,14 @@ public class MainQuizFragment extends Fragment {
   private void setRecyclerView() {
         RecyclerView.LayoutManager layoutManager;
         ArrayList<Model> list= new ArrayList<>();
-        list.add(new Model(Model.TEXT_TYPE,"Hello. This app is created by Ujjawal Anand, contact me on 7631465569 or emailme on ujjawalanand1729@gmail.com for any technical development work like website development, App development etc ",0));
-        list.add(new Model(Model.AUDIO_TYPE,"Quiz Start",R.raw.quiz_start, true));
+      list.add(new Model(Model.TEXT_TYPE, "Instruction- Touch on speaker icon to play/stop the music.", 0));
+      list.add(new Model(Model.AUDIO_TYPE,"Quiz Start",R.raw.quiz_start, true));
         list.add(new Model(Model.AUDIO_TYPE,"Question Asking",R.raw.question_ask, false));
         list.add(new Model(Model.AUDIO_TYPE,"Right Answer",R.raw.right_answer, false));
         list.add(new Model(Model.AUDIO_TYPE,"Wrong Answer",R.raw.wrong_answer, false));
         list.add(new Model(Model.AUDIO_TYPE,"Question in Audience",R.raw.quiz_start, true));
+      list.add(new Model(Model.TEXT_TYPE,"Hello. This app is created by Ujjawal Anand, contact me on 7631465569 or email me on ujjawalanand1729@gmail.com for any technical development work like website development, App development etc ",0));
+
 
 
 
@@ -94,8 +96,8 @@ public class MainQuizFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
 
-                if (position == 0) {
-
+                if (position == 5) {
+                    playMedia(list.get(position));
                 } else if (position == 1) {
                     playMedia(list.get(position));
 
@@ -106,18 +108,6 @@ public class MainQuizFragment extends Fragment {
                     playMedia(list.get(position));
                 }
                 else if (position == 4) {
-                    playMedia(list.get(position));
-                }
-                else if (position == 5) {
-                    playMedia(list.get(position));
-                }
-                else if (position == 6) {
-                    playMedia(list.get(position));
-                }
-                else if (position == 7) {
-                    playMedia(list.get(position));
-                }
-                else if (position == 8) {
                     playMedia(list.get(position));
                 }
             }

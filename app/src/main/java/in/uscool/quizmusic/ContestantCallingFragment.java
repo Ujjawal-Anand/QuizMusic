@@ -52,7 +52,7 @@ public class ContestantCallingFragment extends Fragment {
     private void setRecyclerView() {
         RecyclerView.LayoutManager layoutManager;
         ArrayList<Model> list= new ArrayList<>();
-        list.add(new Model(Model.TEXT_TYPE,"Hello. This app is created by Ujjawal Anand, contact me on 7631465569 or emailme on ujjawalanand1729@gmail.com for any technical development work like website development, App development etc ",0));
+        list.add(new Model(Model.TEXT_TYPE, "Instruction : Touch on speaker icon to play/stop the music.", 0));
         list.add(new Model(Model.AUDIO_TYPE,"Announcing name of  contestants for Quiz or Prize",R.raw.contestant_calling_back, true));
         list.add(new Model(Model.AUDIO_TYPE,"Prize distribution of disqualified contestant round 1",R.raw.aashayein, true));
         list.add(new Model(Model.AUDIO_TYPE,"Prize distribution of disqualified contestant round 2",R.raw.ruk_jana_nhi, true));
@@ -61,6 +61,7 @@ public class ContestantCallingFragment extends Fragment {
         list.add(new Model(Model.AUDIO_TYPE,"Final Round Start",R.raw.brothers_large, false));
         list.add(new Model(Model.AUDIO_TYPE,"National Anthem",R.raw.national_anthem, false));
         list.add(new Model(Model.AUDIO_TYPE,"After announcement of Winner",R.raw.abhi_mujh_me_kahi, true));
+        list.add(new Model(Model.TEXT_TYPE,"Hello. This app is created by Ujjawal Anand, contact me on 7631465569 or email me on ujjawalanand1729@gmail.com for any technical development work like website development, App development etc ",0));
 
 
 
@@ -81,8 +82,8 @@ public class ContestantCallingFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
 
-                if (position == 0) {
-
+                if (position == 8) {
+                    playMedia(list.get(position));
                 } else if (position == 1) {
                     playMedia(list.get(position));
 
@@ -104,9 +105,7 @@ public class ContestantCallingFragment extends Fragment {
                 else if (position == 7) {
                     playMedia(list.get(position));
                 }
-                else if (position == 8) {
-                    playMedia(list.get(position));
-                }
+
             }
         }));
     }
